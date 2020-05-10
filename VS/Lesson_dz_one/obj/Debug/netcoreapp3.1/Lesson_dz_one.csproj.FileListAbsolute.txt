@@ -1,0 +1,40 @@
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.exe
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.deps.json
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.runtimeconfig.json
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.runtimeconfig.dev.json
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.dll
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.pdb
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.csprojAssemblyReference.cache
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.csproj.CoreCompileInputs.cache
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.AssemblyInfoInputs.cache
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.AssemblyInfo.cs
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.RazorTargetAssemblyInfo.cache
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\staticwebassets\Lesson_dz_one.StaticWebAssets.Manifest.cache
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\staticwebassets\Lesson_dz_one.StaticWebAssets.xml
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.dll
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.pdb
+C:\Users\MedJay\source\repos\Lesson_dz_one\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.genruntimeconfig.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.exe
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.deps.json
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.runtimeconfig.json
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.runtimeconfig.dev.json
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.dll
+D:\Курсы\.Net Core\VS\Lesson_dz_one\bin\Debug\netcoreapp3.1\Lesson_dz_one.pdb
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.csprojAssemblyReference.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.csproj.CoreCompileInputs.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.MvcApplicationPartsAssemblyInfo.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.AssemblyInfoInputs.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.AssemblyInfo.cs
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.RazorTargetAssemblyInfo.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\staticwebassets\Lesson_dz_one.StaticWebAssets.Manifest.cache
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\staticwebassets\Lesson_dz_one.StaticWebAssets.xml
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.dll
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.pdb
+D:\Курсы\.Net Core\VS\Lesson_dz_one\obj\Debug\netcoreapp3.1\Lesson_dz_one.genruntimeconfig.cache
