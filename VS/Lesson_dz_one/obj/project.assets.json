@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Курсы\\.Net Core\\VS\\Lesson_dz_one\\Lesson_dz_one.csproj",
+      "projectUniqueName": "C:\\Users\\MedJay\\source\\repos\\Lesson_dz_one\\Lesson_dz_one\\Lesson_dz_one.csproj",
       "projectName": "Lesson_dz_one",
-      "projectPath": "D:\\Курсы\\.Net Core\\VS\\Lesson_dz_one\\Lesson_dz_one.csproj",
+      "projectPath": "C:\\Users\\MedJay\\source\\repos\\Lesson_dz_one\\Lesson_dz_one\\Lesson_dz_one.csproj",
       "packagesPath": "C:\\Users\\MedJay\\.nuget\\packages\\",
-      "outputPath": "D:\\Курсы\\.Net Core\\VS\\Lesson_dz_one\\obj\\",
+      "outputPath": "C:\\Users\\MedJay\\source\\repos\\Lesson_dz_one\\Lesson_dz_one\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

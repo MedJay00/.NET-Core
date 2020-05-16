@@ -20,7 +20,7 @@ namespace Lesson_dz_one
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Instead_startup>();
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }
