@@ -1,0 +1,36 @@
+﻿@using News_Table.Models
+@model List<News>
+
+
+    @foreach (News news in Model)
+    {
+        <table>
+            <tr>
+                <td>Id=</td>
+                <td>@news.Id </td>
+            </tr>
+
+            <tr>
+                <td>Title </td>
+                <td>@news.Title </td>
+            </tr>
+
+            <tr>
+                <td>Text </td>
+                <td>@news.Text </td>
+            </tr>
+
+            <tr>
+                <td>AuthorName </td>
+                <td>@news.AuthorName </td>
+            </tr>
+
+            <tr>
+                <td>IsFake </td>
+                <td>@news.IsFake </td>
+            </tr>
+        </table>
+        <h1>------------------------------------------------------</h1>
+        <p></p>
+
+    }
