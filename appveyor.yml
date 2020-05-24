@@ -3,11 +3,13 @@ configuration: Release
 cache: 
     - packages -> **\packages.config
 before_build: nuget restore
-    -build: 
-        project: 
-            matrix:
-                -\VS\News_Table\News_Table\News_Table.csproj
-                -\VS\Lesson_dz_one\Lesson_dz_one\Lesson_dz_one.csproj
-                -\VS\Infestation\Infestation\Infestation.csproj
-                -\VS\Fortune\Fortune.csproj
-        publish_wap: true
+    build matrix: 
+        -project: \VS\News_Table\News_Table\News_Table.csproj     
+         publish_wap: true
+        -project: \VS\Lesson_dz_one\Lesson_dz_one\Lesson_dz_one.csproj    
+         publish_wap: true
+        -project: \VS\Infestation\Infestation\Infestation.csproj     
+         publish_wap: true
+        -project: \VS\Fortune\Fortune.csproj    
+         publish_wap: true
+ 
