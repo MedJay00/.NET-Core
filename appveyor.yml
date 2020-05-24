@@ -5,9 +5,8 @@ cache:
 before_build: nuget restore
     -build: 
         project: 
-            matrix:
-                -\VS\News_Table\News_Table\News_Table.csproj
-                -\VS\Lesson_dz_one\Lesson_dz_one\Lesson_dz_one.csproj
-                -\VS\Infestation\Infestation\Infestation.csproj
-                -\VS\Fortune\Fortune.csproj
+            -\VS\News_Table\News_Table\News_Table.csproj
+            -\VS\Lesson_dz_one\Lesson_dz_one\Lesson_dz_one.csproj
+            -\VS\Infestation\Infestation\Infestation.csproj
+            -\VS\Fortune\Fortune.csproj
         publish_wap: true
