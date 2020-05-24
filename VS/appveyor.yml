@@ -5,14 +5,14 @@ cache:
 before_build: nuget restore
 matrix:
         -build: 
-                project: News_Table.csproj
+                project: \News_Table\News_Table\News_Table.csproj
                 publish_wap: true
         -build: 
-                project: Lesson_dz_one.csproj
+                project: \Lesson_dz_one\Lesson_dz_one\Lesson_dz_one.csproj
                 publish_wap: true
         -build: 
-                project: Infestation.csproj
+                project: \Infestation\Infestation\Infestation.csproj
                 publish_wap: true
          -build: 
-                project: Fortune.csproj
+                project: \Fortune\Fortune.csproj
                 publish_wap: true
