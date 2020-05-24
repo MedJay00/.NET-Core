@@ -10,5 +10,6 @@ before_build: nuget restore
          publish_wap: true
         -project: \VS\Infestation\Infestation\Infestation.csproj     
          publish_wap: true
-       
+        -project: \VS\Fortune\Fortune.csproj    
+         publish_wap: true
  
