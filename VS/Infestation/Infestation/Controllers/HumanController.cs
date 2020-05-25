@@ -23,8 +23,9 @@ namespace Infestation.Controllers
         }
         public IActionResult Country(int id)
         {
-            ViewData["country"] = _context.Humans.Include(x=>x.Country).SingleOrDefault(human => human.Id == id).Country.Name;
+            ViewData["country"] = _context.Humans.SingleOrDefault(human => human.Id == id).Country.Name;
             return View();
         }
+       
     }
 }
