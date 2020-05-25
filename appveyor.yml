@@ -5,7 +5,7 @@ cache:
 environment:
     matrix:
     - solution_folder: /VS/News_Table/News_Table
-      full_project_name: VS/News_Table/News_Table/News_Table.csproj
+      full_project_name: /VS/News_Table/News_Table/News_Table.csproj
       
     - solution_folder: VS/Lesson_dz_one/Lesson_dz_one/
       full_project_name: VS/Lesson_dz_one/Lesson_dz_one/Lesson_dz_one.csproj 
