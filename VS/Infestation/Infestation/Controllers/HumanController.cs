@@ -9,9 +9,16 @@ namespace Infestation.Controllers
 {
     public class HumanController : Controller
     {
-        public IActionResult Index()
+
+        private InfestationContext _context { get; set; }
+        public HumanController(InfestationContext context)
         {
-            return BadRequest();
+            _context = context;
+        }
+        public IActionResult Index(int id)
+        {
+            ViewData["human"]=_context.Humans.SingleOrDefault(human => human.Id == id);
+            return View();
         }
     }
 }

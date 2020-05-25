@@ -8,12 +8,18 @@ namespace Infestation.Models
 {
     public class InfestationContext : DbContext
     {
+        public InfestationContext(DbContextOptions options)
+            :base(options)
+        {
+
+        }
+          
         public DbSet<Country> Countries { get; set; }
         public DbSet<Human> Humans { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-VCQVJDT; Initial Catalog=Infestation; Integrated Security=SSPI;");
-        }
+       // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       // {
+       //     optionsBuilder.UseSqlServer("Data Source=DESKTOP-VCQVJDT; Initial Catalog=Infestation; Integrated Security=SSPI;");
+        //}
     }
 }
