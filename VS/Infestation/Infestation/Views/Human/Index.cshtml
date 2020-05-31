@@ -1,15 +1,45 @@
 ﻿
 @{
-    var human = ViewData["human"] as Human;
+    var _human = ViewData["human"] as List<Human>;
 }
 
+@foreach (var human in _human)
+{
     <table>
+     
         <tr>
-            <td>@human.Id</td>
-            <td>@human.FirstName</td>
+            <td>Id=</td>
+            <td>@human.Id </td>
+        </tr>
+
+        <tr>
+            <td>FirstName=</td>
+            <td>@human.FirstName </td>
+        </tr>
+
+        <tr>
+            <td>LastName=</td>
             <td>@human.LastName</td>
+        </tr>
+
+        <tr>
+            <td>Age=</td>
             <td>@human.Age</td>
+        </tr>
+
+        <tr>
+            <td>IsSick=</td>
             <td>@human.IsSick</td>
+        </tr>
+
+        <tr>
+            <td>Gender=</td>
             <td>@human.Gender</td>
         </tr>
+
     </table>
+    <h1>------------------------------------------------------</h1>
+    <p></p>
+}
+
+

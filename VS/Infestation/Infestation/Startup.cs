@@ -26,6 +26,7 @@ namespace Infestation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<INewsRepository, MockNewsRepository>();
+            services.AddScoped<ISqlHumanRepository, SqlHumanRepository>();
             services.AddDbContext<InfestationContext>(builder => builder.UseSqlServer(_configuration.GetConnectionString("InfestationDbConnectionNew"))
             .UseLazyLoadingProxies());
             services.AddControllersWithViews();

@@ -1,5 +1,18 @@
-﻿
+﻿@model IEnumerable<Human>
 @{
-    var countryName = ViewData["country"];
+    var humanName = ViewData["country"] as List<Human>;
 }
-<h1>@countryName</h1>
+@foreach (var human in humanName)
+{
+    <table>
+        <tr>
+            <td>Name human =</td>
+            <td>@human.FirstName </td>
+        </tr>
+
+        
+    </table>
+    <h1>------------------------------------------------------</h1>
+    <p></p>
+
+}
