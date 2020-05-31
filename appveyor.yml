@@ -4,13 +4,13 @@ cache:
     - packages -> **\packages.config
 environment:
     matrix:
-    - solution_folder: VS/News_Table/News_Table
+    - solution_folder: VS/News_Table/
       full_project_name: VS/News_Table/News_Table/News_Table.csproj
       
-    - solution_folder: VS/Lesson_dz_one/Lesson_dz_one/
+    - solution_folder: VS/Lesson_dz_one/
       full_project_name: VS/Lesson_dz_one/Lesson_dz_one/Lesson_dz_one.csproj 
     
-    - solution_folder: VS/Infestation/Infestation/
+    - solution_folder: VS/Infestation/
       full_project_name: VS/Infestation/Infestation/Infestation.csproj  
 
     - solution_folder: VS/Fortune/
