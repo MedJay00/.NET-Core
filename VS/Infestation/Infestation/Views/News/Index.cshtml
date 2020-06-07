@@ -1,23 +1,45 @@
 ﻿
-@section AdditionalInfo{
-    <table class="table">
+@{
+    var _news = ViewData["news"] as List<News>;
+}
+
+@foreach (var news in _news)
+{
+       var human = news.Author as Human;
+    
+    <table>
+
         <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Text</th>
-            <th>AuthorName</th>
-            <th>IsFake</th>
+            <td>Id=</td>
+            <td>@news.Id </td>
         </tr>
-        @foreach (var newsObject in ViewData["key"] as List<News>)
-        {
-            var news = newsObject as News;
-            <tr>
-                <td>@news.Id</td>
-                <td>@news.Title</td>
-                <td>@news.Text</td>
-                <td>@news.AuthorName</td>
-                <td>@news.IsFake</td>
-            </tr>
-        }
+
+        <tr>
+            <td>Title=</td>
+            <td>@news.Title </td>
+        </tr>
+
+        <tr>
+            <td>Text=</td>
+            <td>@news.Text</td>
+        </tr>
+
+        <tr>
+            <td>FirstName=</td>
+            <td>@human.FirstName</td>
+        </tr>
+
+        <tr>
+            <td>LastName=</td>
+            <td>@human.LastName</td>
+        </tr>
+
+        <tr>
+            <td>IsFake=</td>
+            <td>@news.IsFake</td>
+        </tr>
+
     </table>
+    <h1>------------------------------------------------------</h1>
+    <p></p>
 }

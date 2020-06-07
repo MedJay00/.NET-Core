@@ -43,7 +43,12 @@ namespace Infestation.Migrations
                     b.Property<bool>("Vaccine")
                         .HasColumnType("bit");
 
+                    b.Property<int>("WorldPartId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("WorldPartId");
 
                     b.ToTable("Countries");
                 });
@@ -80,11 +85,102 @@ namespace Infestation.Migrations
                     b.ToTable("Humans");
                 });
 
+            modelBuilder.Entity("Infestation.Models.News", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsFake")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("News");
+                });
+
+            modelBuilder.Entity("Infestation.Models.WorldPart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WorldPart");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Australia"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Asia"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "America"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Antarctica"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Africa"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Europe"
+                        });
+                });
+
+            modelBuilder.Entity("Infestation.Models.Country", b =>
+                {
+                    b.HasOne("Infestation.Models.WorldPart", "WorldPart")
+                        .WithMany("Country")
+                        .HasForeignKey("WorldPartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Infestation.Models.Human", b =>
                 {
                     b.HasOne("Infestation.Models.Country", "Country")
                         .WithMany("Humans")
                         .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Infestation.Models.News", b =>
+                {
+                    b.HasOne("Infestation.Models.Human", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

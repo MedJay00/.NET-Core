@@ -25,7 +25,7 @@ namespace Infestation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<INewsRepository, MockNewsRepository>();
+            services.AddScoped<INewsRepository, SqlNewsRepository>();
             services.AddScoped<ISqlHumanRepository, SqlHumanRepository>();
             services.AddDbContext<InfestationContext>(builder => builder.UseSqlServer(_configuration.GetConnectionString("InfestationDbConnectionNew"))
             .UseLazyLoadingProxies());
