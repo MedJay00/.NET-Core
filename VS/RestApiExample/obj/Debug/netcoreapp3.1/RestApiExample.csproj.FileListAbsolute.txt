@@ -1,0 +1,40 @@
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.csprojAssemblyReference.cache
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.csproj.CoreCompileInputs.cache
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.AssemblyInfoInputs.cache
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.AssemblyInfo.cs
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.exe
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.deps.json
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.runtimeconfig.json
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.runtimeconfig.dev.json
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.dll
+C:\Users\MedJay\source\repos\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.pdb
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.RazorTargetAssemblyInfo.cache
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\staticwebassets\RestApiExample.StaticWebAssets.Manifest.cache
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\staticwebassets\RestApiExample.StaticWebAssets.xml
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.dll
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.pdb
+C:\Users\MedJay\source\repos\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.genruntimeconfig.cache
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.exe
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.deps.json
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.runtimeconfig.json
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.runtimeconfig.dev.json
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.dll
+D:\Курсы\.Net Core\VS\RestApiExample\bin\Debug\netcoreapp3.1\RestApiExample.pdb
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.csprojAssemblyReference.cache
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.csproj.CoreCompileInputs.cache
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.MvcApplicationPartsAssemblyInfo.cache
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.AssemblyInfoInputs.cache
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.AssemblyInfo.cs
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.RazorTargetAssemblyInfo.cache
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\staticwebassets\RestApiExample.StaticWebAssets.Manifest.cache
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\staticwebassets\RestApiExample.StaticWebAssets.xml
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.dll
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.pdb
+D:\Курсы\.Net Core\VS\RestApiExample\obj\Debug\netcoreapp3.1\RestApiExample.genruntimeconfig.cache
