@@ -1,0 +1,22 @@
+﻿@model List<HumanAuthorsViewModel>
+
+
+    <table class="table">
+        <tr>
+            <th>AuthorId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>NewsCount</th>
+        </tr>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.AuthorId</td>
+                <td>@author.FirstName</td>
+                <td>@author.LastName</td>
+                <td><a asp-controller="News" asp-action="Author" asp-route-authorsId="@author.AuthorId">@author.NewsCount</a></td>
+            </tr>
+        }
+    </table>
+
+

@@ -18,21 +18,47 @@ namespace Infestation.Controllers
             _repository = repository;
         }
 
-        [Route("")]
-        [Route("[controller]/[action]")]
-        [Route("News/Index/{id?}")]
-        public IActionResult Index()
+        
+        public IActionResult Index(int id)
         {
+
+            List<News> news = null;
+
+            if (id == -1)
+            {
+                news = _repository.GetAllNews().ToList();
+
+            }
+            else
+            {
+                news = new List<News>
+                {
+                    _repository.GetNews(id)
+                };
+            }
+
+            return View(news);
+
+        }
+
+        public IActionResult Author (int authorsId)
+        {
+            List<News> aNews=_repository.GetAllAuthorsNews(authorsId);
             
-            ViewData["news"] = _repository.GetAllNews().ToList();
+
+            return View(aNews);
+        }
+
+
+        public IActionResult Create()
+        {
             return View();
         }
 
-        
-        public IActionResult Show(int newsId)
+        [HttpPost]
+        public IActionResult Create(News news)
         {
-           
-            ViewData["news"] = _repository.GetAllNews().SingleOrDefault(news => news.Id == newsId);
+            _repository.CreateNews(news);
             return View();
         }
     }

@@ -1,45 +1,23 @@
-﻿
-@{
-    var _news = ViewData["news"] as List<News>;
-}
+﻿@model List<News>
 
-@foreach (var news in _news)
-{
-       var human = news.Author as Human;
-    
-    <table>
-
+@section AdditionalInfo{
+    <table class="table">
         <tr>
-            <td>Id=</td>
-            <td>@news.Id </td>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Author Name</th>
+            <th>Fake</th>
         </tr>
-
-        <tr>
-            <td>Title=</td>
-            <td>@news.Title </td>
-        </tr>
-
-        <tr>
-            <td>Text=</td>
-            <td>@news.Text</td>
-        </tr>
-
-        <tr>
-            <td>FirstName=</td>
-            <td>@human.FirstName</td>
-        </tr>
-
-        <tr>
-            <td>LastName=</td>
-            <td>@human.LastName</td>
-        </tr>
-
-        <tr>
-            <td>IsFake=</td>
-            <td>@news.IsFake</td>
-        </tr>
-
+        @foreach (var news in Model)
+        {
+            <tr>
+                <td>@news.Id</td>
+                <td>@news.Title</td>
+                <td>@news.Text</td>
+                <td><a asp-controller="Human" asp-action="Authors" asp-route-AuthorsId="@news.Author.Id">@news.Author.FirstName @news.Author.LastName</a></td>
+                <td>@news.IsFake</td>
+            </tr>
+        }
     </table>
-    <h1>------------------------------------------------------</h1>
-    <p></p>
 }

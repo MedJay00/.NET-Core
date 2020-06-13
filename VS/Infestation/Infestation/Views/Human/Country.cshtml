@@ -1,8 +1,6 @@
-﻿@model IEnumerable<Human>
-@{
-    var humanName = ViewData["country"] as List<Human>;
-}
-@foreach (var human in humanName)
+﻿@model List<Human>
+
+@foreach (var human in Model)
 {
     <table>
         <tr>

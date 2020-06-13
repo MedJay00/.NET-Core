@@ -1,5 +1,6 @@
 ﻿using Infestation.Models;
 using Infestation.Models.Repositories;
+using Infestation.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -42,10 +43,10 @@ namespace Infestation.Controllers
         //    return View();
         //}
 
-        private ISqlHumanRepository _sqlHumanRepository { get; set; }
-        public HumanController(ISqlHumanRepository sqlHumanRepository)
+        private IHumanRepository _iHumanRepository { get; set; }
+        public HumanController(IHumanRepository iHumanRepository)
         {
-            _sqlHumanRepository = sqlHumanRepository;
+            _iHumanRepository = iHumanRepository;
         }
 
         
@@ -56,24 +57,71 @@ namespace Infestation.Controllers
 
             if (humanId == 0)
             {
-                humen = _sqlHumanRepository.GetAllHumans();
+                humen = _iHumanRepository.GetAllHumans();
 
             }
             else
             {
                 humen = new List<Human>(1);
-                humen.Add(_sqlHumanRepository.GetHuman(humanId));
+                humen.Add(_iHumanRepository.GetHuman(humanId));
             }
-
-            ViewData["human"] = humen;
-            return View();
+             
+            return View(humen);
         }
         public IActionResult Country(string countryName)
         {
-            ViewData["country"] = _sqlHumanRepository.GetAllHumansInCountry(countryName);
+            return View(_iHumanRepository.GetAllHumansInCountry(countryName));
+        }
 
+        public IActionResult Authors([FromServices] INewsRepository newsRepository, int AuthorsId=0) 
+        {
+            var humans = _iHumanRepository.GetAllHumans().ToList();
+            var news = newsRepository.GetAllNews().ToList();
+            var viewModels = new List<HumanAuthorsViewModel>();
+
+            if (AuthorsId != 0)
+            {
+                var human = humans.FirstOrDefault(_human => _human.Id == AuthorsId);
+                var viewModel = new HumanAuthorsViewModel();
+                viewModel.AuthorId = human.Id;
+                viewModel.FirstName = human.FirstName;
+                viewModel.LastName = human.LastName;
+
+                viewModel.NewsCount = news.Count(news => news.AuthorId == human.Id);
+
+                viewModels.Add(viewModel);
+
+
+                return View(viewModels);
+            }
+
+            foreach (var human in humans)
+            {
+                var viewModel = new HumanAuthorsViewModel();
+                viewModel.AuthorId = human.Id;
+                viewModel.FirstName = human.FirstName;
+                viewModel.LastName = human.LastName;
+
+                viewModel.NewsCount = news.Count(news=>news.AuthorId==human.Id);
+
+                viewModels.Add(viewModel);
+            }
+            
+            return View(viewModels);
+        }
+
+        public IActionResult Create()
+        {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(Human human)
+        {
+            _iHumanRepository.CreateHuman(human);
+            return View();
+        }
+
+        //Id=2&FirstName=Nikola&LastName=Gogol&type=47&IsSick=on&Gender=Male&CountryId=5
     }
 }

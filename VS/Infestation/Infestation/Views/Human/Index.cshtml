@@ -1,45 +1,29 @@
-﻿
-@{
-    var _human = ViewData["human"] as List<Human>;
-}
+﻿@model List<Human>
 
-@foreach (var human in _human)
+
+@if (Model != null)
 {
-    <table>
-     
+    <table class="table">
         <tr>
-            <td>Id=</td>
-            <td>@human.Id </td>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>IsSick</th>
+            <th>Gender</th>
         </tr>
-
-        <tr>
-            <td>FirstName=</td>
-            <td>@human.FirstName </td>
-        </tr>
-
-        <tr>
-            <td>LastName=</td>
-            <td>@human.LastName</td>
-        </tr>
-
-        <tr>
-            <td>Age=</td>
-            <td>@human.Age</td>
-        </tr>
-
-        <tr>
-            <td>IsSick=</td>
-            <td>@human.IsSick</td>
-        </tr>
-
-        <tr>
-            <td>Gender=</td>
-            <td>@human.Gender</td>
-        </tr>
-
+        @foreach (var human in Model)
+        {
+            <tr>
+                <td>@human.Id</td>
+                <td>@human.FirstName</td>
+                <td>@human.LastName</td>
+                <td>@human.Age</td>
+                <td>@human.IsSick</td>
+                <td>@human.Gender</td>
+            </tr>
+        }
     </table>
-    <h1>------------------------------------------------------</h1>
-    <p></p>
 }
 
 

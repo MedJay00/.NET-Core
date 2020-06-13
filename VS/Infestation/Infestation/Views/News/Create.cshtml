@@ -1,0 +1,19 @@
+﻿@model News
+
+    <form asp-controller="News" asp-action="Create" method="post">
+
+        <label asp-for="Title" for="Title">Title</label><br>
+        <input asp-for="Title" name="Title" type="text" /><br>
+
+        <label asp-for="Text">Text</label><br>
+        <input asp-for="Text" type="text" /><br>
+
+        <label asp-for="IsFake">IsFake</label><br>
+        <input asp-for="IsFake" type="checkbox" /><br>
+
+        <label asp-for="AuthorId">AuthorId</label><br>
+        <input asp-for="AuthorId" type="number" /><br>
+
+        <button type="submit">Create human</button>
+
+    </form>
