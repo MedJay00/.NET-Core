@@ -1,8 +1,10 @@
 ﻿using Infestation.Models;
 using Infestation.Models.Repositories;
 using Infestation.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,29 +52,39 @@ namespace Infestation.Controllers
         }
 
         
-
-        public IActionResult Index(int humanId)
+        [AllowAnonymous]
+        public IActionResult Index(int humanId, string? countryName)
         {
-            List<Human> humen = null;
+            
+                List<Human> humen = null;
 
             if (humanId == 0)
             {
                 humen = _iHumanRepository.GetAllHumans();
 
             }
+            else if (countryName != null)
+            {
+                humen = _iHumanRepository.GetAllHumansInCountry(countryName);
+            }
             else
             {
                 humen = new List<Human>(1);
                 humen.Add(_iHumanRepository.GetHuman(humanId));
             }
-             
+                
             return View(humen);
         }
-        public IActionResult Country(string countryName)
+
+        [AllowAnonymous]
+        public IActionResult Country(string _countryName)
         {
-            return View(_iHumanRepository.GetAllHumansInCountry(countryName));
+            //ViewData["humen"] = _iHumanRepository.GetAllHumansInCountry(countryName);
+            return RedirectToAction("Index", "Human",new { humanId = 2, countryName= _countryName });
+            //return View(_iHumanRepository.GetAllHumansInCountry(countryName));
         }
 
+        [AllowAnonymous]
         public IActionResult Authors([FromServices] INewsRepository newsRepository, int AuthorsId=0) 
         {
             var humans = _iHumanRepository.GetAllHumans().ToList();
@@ -109,7 +121,8 @@ namespace Infestation.Controllers
             
             return View(viewModels);
         }
-
+        
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -118,10 +131,13 @@ namespace Infestation.Controllers
         [HttpPost]
         public IActionResult Create(Human human)
         {
-            _iHumanRepository.CreateHuman(human);
+            if(ModelState.IsValid)
+                _iHumanRepository.CreateHuman(human);
+
             return View();
         }
 
         //Id=2&FirstName=Nikola&LastName=Gogol&type=47&IsSick=on&Gender=Male&CountryId=5
     }
 }
+

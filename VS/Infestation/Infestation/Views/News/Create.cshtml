@@ -4,15 +4,18 @@
 
         <label asp-for="Title" for="Title">Title</label><br>
         <input asp-for="Title" name="Title" type="text" /><br>
-
+        <span class="text-danger" asp-validation-for="Title"></span><br>
+        
         <label asp-for="Text">Text</label><br>
         <input asp-for="Text" type="text" /><br>
+        <span class="text-danger" asp-validation-for="Text"></span><br>
 
         <label asp-for="IsFake">IsFake</label><br>
         <input asp-for="IsFake" type="checkbox" /><br>
 
         <label asp-for="AuthorId">AuthorId</label><br>
         <input asp-for="AuthorId" type="number" /><br>
+        <span class="text-danger" asp-validation-for="AuthorId"></span><br>
 
         <button type="submit">Create human</button>
 

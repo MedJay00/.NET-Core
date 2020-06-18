@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infestation.Models
 {
-    public class InfestationContext : DbContext
+    public class InfestationContext : IdentityDbContext
     {
         public InfestationContext(DbContextOptions options)
             :base(options)
@@ -21,6 +22,7 @@ namespace Infestation.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<WorldPart>().HasData(
                 new WorldPart { Id = 1, Name = "Australia" },
                 new WorldPart { Id = 2, Name = "Asia" },

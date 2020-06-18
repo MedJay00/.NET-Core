@@ -2,10 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Infestation.Infra.Services.Implementations;
+using Infestation.Infra.Services.Interfaces;
 using Infestation.Models;
 using Infestation.Models.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,9 +32,31 @@ namespace Infestation
         {
             services.AddScoped<INewsRepository, SqlNewsRepository>();
             services.AddScoped<IHumanRepository, SqlHumanRepository>();
+            services.AddScoped<IMessageService, EmailService>();
+
             services.AddDbContext<InfestationContext>(builder => builder.UseSqlServer(_configuration.GetConnectionString("InfestationDbConnectionNew"))
             .UseLazyLoadingProxies());
             services.AddControllersWithViews();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<InfestationContext>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 3;
+                options.Password.RequiredUniqueChars = 1;
+
+                
+            });
+
+            services.AddControllersWithViews(configure =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+                configure.Filters.Add(new AuthorizeFilter(policy));
+            });
 
         }
 
@@ -48,7 +75,9 @@ namespace Infestation
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

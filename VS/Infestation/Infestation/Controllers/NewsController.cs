@@ -19,7 +19,7 @@ namespace Infestation.Controllers
         }
 
         
-        public IActionResult Index(int id)
+        public IActionResult Index(int id=-1)
         {
 
             List<News> news = null;
@@ -58,7 +58,9 @@ namespace Infestation.Controllers
         [HttpPost]
         public IActionResult Create(News news)
         {
-            _repository.CreateNews(news);
+            if(ModelState.IsValid)
+                _repository.CreateNews(news);
+
             return View();
         }
     }
