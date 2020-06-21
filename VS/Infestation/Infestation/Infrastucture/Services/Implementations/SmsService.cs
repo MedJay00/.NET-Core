@@ -1,5 +1,5 @@
-﻿using Castle.Core.Configuration;
-using Infestation.Infra.Services.Interfaces;
+﻿using Infestation.Infra.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,20 +17,15 @@ namespace Infestation.Infra.Services.Implementations
             _configuration = configuration;
         }
 
-        public void SendMessage()
+        public void SendMessage(string recipient, string bodyMessage)
         {
-            const string accountSid = "AC9842d551162aa0d92f8fc31818015b38";
-            const string authToken = "257fbd7a7c7fa79dd071446d1b51a69a";
-
-            TwilioClient.Init(accountSid, authToken);
+            TwilioClient.Init(_configuration.GetValue<string>("TwilioAccountSid"), _configuration.GetValue<string>("TwilioAuthToken"));
 
             var message = MessageResource.Create(
                 body: "Hi there!",
                 from: new Twilio.Types.PhoneNumber("+18647320603"),
-                to: new Twilio.Types.PhoneNumber("+15558675310")
+                to: new Twilio.Types.PhoneNumber("+380933596232")
             );
-
-            Console.WriteLine(message.Sid);
         }
     }
 }

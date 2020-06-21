@@ -1,4 +1,5 @@
-﻿using Infestation.ViewModels;
+﻿using Infestation.Infra.Services.Interfaces;
+using Infestation.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,13 @@ namespace Infestation.Controllers
         public UserManager<IdentityUser> _userManager { get; set; }
         public SignInManager<IdentityUser> _signInManager { get; }
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public IMessageService _messageService { get; }
+
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IMessageService messageService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _messageService = messageService;
         }
 
 
@@ -42,6 +46,9 @@ namespace Infestation.Controllers
                 if (createTask.Result.Succeeded)
                 {
                     _signInManager.SignInAsync(user, false);
+
+                    _messageService.SendMessage(viewModel.Email, "you're registered");
+
                     return RedirectToAction("Index", "Human");
                 }
 
@@ -74,7 +81,7 @@ namespace Infestation.Controllers
                     {
                         return Redirect(returnUrl);
                     }
-                       
+                    
                     return RedirectToAction("Index", "Human");
                 }
                     

@@ -23,11 +23,11 @@
                         @if (_signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <label class="nav-item">@User.Identity.Name</label>
+                                <h3><label class="badge badge-pill badge-light">@User.Identity.Name</label></h3>
                             </li>
                             <li class="nav-item">
                                 <form asp-controller="Account" asp-action="Logout">
-                                    <button class="nav-link text-dark" type="submit">Logout</button>
+                                    <button class="btn btn-outline-dark" type="submit">Logout</button>
                                 </form>
                             </li>
                         }

@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 
 namespace Infestation.Infra.Services.Interfaces
 {
-    interface IMessageService
+   public interface IMessageService
     {
-        void SendMessage();
+        void SendMessage(string recipient, string bodyMessage);
     }
+
+    //public class Email { }
+    //public class Sms { }
 }

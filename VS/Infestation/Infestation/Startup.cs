@@ -32,7 +32,8 @@ namespace Infestation
         {
             services.AddScoped<INewsRepository, SqlNewsRepository>();
             services.AddScoped<IHumanRepository, SqlHumanRepository>();
-            services.AddScoped<IMessageService, EmailService>();
+            services.AddScoped<IMessageService, MessageService>();
+            //services.AddScoped<IMessageService<Sms>, SmsService>();
 
             services.AddDbContext<InfestationContext>(builder => builder.UseSqlServer(_configuration.GetConnectionString("InfestationDbConnectionNew"))
             .UseLazyLoadingProxies());
@@ -83,7 +84,7 @@ namespace Infestation
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Human}/{action=Index}/{id?}");
             });
         }
     }

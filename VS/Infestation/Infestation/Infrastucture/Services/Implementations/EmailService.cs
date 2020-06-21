@@ -11,19 +11,18 @@ namespace Infestation.Infra.Services.Implementations
 {
     public class EmailService : IMessageService
     {
-
         public IConfiguration _configuration { get; set; }
         public EmailService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public void SendMessage()
+        public void SendMessage(string recipient, string bodyMessage)
         {
             MimeMessage message = new MimeMessage();
 
-            message.From.Add(new MailboxAddress("Admin", ""));
-            message.To.Add(new MailboxAddress("User", ""));
+            message.From.Add(new MailboxAddress("Admin", _configuration.GetValue<string>("EmailAddress")));
+            message.To.Add(new MailboxAddress("User", "wapona8153@royandk.com"));
 
             message.Subject = "email from admin";
 
@@ -36,7 +35,7 @@ namespace Infestation.Infra.Services.Implementations
             {
                 client.ServerCertificateValidationCallback = (s, c, ce, e) => true;
                 client.Connect("smtp.gmail.com",465,true);
-                client.Authenticate("","");
+                client.Authenticate(_configuration.GetValue<string>("EmailAddress"), _configuration.GetValue<string>("EmailPassword"));
 
                 client.Send(message);
                 client.Disconnect(true);
