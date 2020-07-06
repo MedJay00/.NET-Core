@@ -1,0 +1,10 @@
+﻿@model WebSocketsExample.Models.Users
+
+<form asp-controller="Home" asp-action="Enter" method="post">
+    <label asp-for="Name" for="Name">Name</label><br>
+    <input asp-for="Name" name="Name" type="text" /><br>
+    <span class="text-danger" asp-validation-for="Name"></span><br>
+
+    <button type="submit">Join chat</button>
+
+</form>

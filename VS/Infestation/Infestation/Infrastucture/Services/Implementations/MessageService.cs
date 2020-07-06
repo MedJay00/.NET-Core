@@ -1,6 +1,8 @@
 ﻿using Infestation.Infra.Services.Interfaces;
+using Infestation.Infrastucture.Configuration;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using MimeKit;
 using System;
 using System.Collections.Generic;
@@ -15,9 +17,14 @@ namespace Infestation.Infra.Services.Implementations
     public class MessageService : IMessageService
     {
         public IConfiguration _configuration { get; set; }
-        public MessageService(IConfiguration configuration)
+
+        InfestationConfiguration _infestationConfiguration { get; set; }
+
+        public MessageService(IConfiguration configuration, IOptions<InfestationConfiguration> options)
         {
             _configuration = configuration;
+
+            _infestationConfiguration = options.Value;
         }
 
         public void SendMessage(string recipient, string bodyMessage)
@@ -26,21 +33,21 @@ namespace Infestation.Infra.Services.Implementations
             {
                 MimeMessage message = new MimeMessage();
 
-                message.From.Add(new MailboxAddress("Admin", _configuration.GetValue<string>("EmailAddress")));
-                message.To.Add(new MailboxAddress("User", recipient));
+                message.From.Add(new MailboxAddress(_infestationConfiguration.EmailService.FromName, _infestationConfiguration.EmailService.EmailAddress));
+                message.To.Add(new MailboxAddress(_infestationConfiguration.EmailService.ToName, recipient));
 
-                message.Subject = "email from admin";
+                message.Subject = _infestationConfiguration.EmailService.Subject;
 
                 BodyBuilder bodyBuilder = new BodyBuilder();
                 bodyBuilder.TextBody = bodyMessage;
-                bodyBuilder.HtmlBody = "<h1>"+ bodyMessage + "</h1>";
+                bodyBuilder.HtmlBody = _infestationConfiguration.HOne + bodyMessage + _infestationConfiguration.HOne;
                 message.Body = bodyBuilder.ToMessageBody();
 
                 using (SmtpClient client = new SmtpClient())
                 {
                     client.ServerCertificateValidationCallback = (s, c, ce, e) => true;
-                    client.Connect("smtp.gmail.com", 465, true);
-                    client.Authenticate(_configuration.GetValue<string>("EmailAddress"), _configuration.GetValue<string>("EmailPassword"));
+                    client.Connect(_infestationConfiguration.EmailService.GoogleSmptServer, _infestationConfiguration.EmailService.Port, true);
+                    client.Authenticate(_infestationConfiguration.EmailService.EmailAddress, _infestationConfiguration.EmailService.EmailPassword);
 
                     client.Send(message);
                     client.Disconnect(true);
@@ -48,16 +55,14 @@ namespace Infestation.Infra.Services.Implementations
             }
             else 
             {
-                TwilioClient.Init(_configuration.GetValue<string>("TwilioAccountSid"), _configuration.GetValue<string>("TwilioAuthToken"));
+                TwilioClient.Init(_infestationConfiguration.SmsService.TwilioAccountSid, _infestationConfiguration.SmsService.TwilioAuthToken);
 
                 var message = MessageResource.Create(
                     body: bodyMessage,
-                    from: new Twilio.Types.PhoneNumber(_configuration.GetValue<string>("PhoneNumber")),
+                    from: new Twilio.Types.PhoneNumber(_infestationConfiguration.SmsService.PhoneNumber),
                     to: new Twilio.Types.PhoneNumber(recipient)
                 );
             }
-
-           
 
         }
     }

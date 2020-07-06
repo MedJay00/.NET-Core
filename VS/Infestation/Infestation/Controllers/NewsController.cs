@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infestation.Controllers
 {
-    
+      
     public class NewsController : Controller
     {
         private INewsRepository _repository { get; set; }

@@ -1,10 +1,12 @@
-﻿using Infestation.Models;
+﻿using Infestation.Infrastucture.Configuration;
+using Infestation.Models;
 using Infestation.Models.Repositories;
 using Infestation.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,17 +47,18 @@ namespace Infestation.Controllers
         //    return View();
         //}
 
+
         private IHumanRepository _iHumanRepository { get; set; }
         public HumanController(IHumanRepository iHumanRepository)
         {
             _iHumanRepository = iHumanRepository;
+
         }
 
         
         [AllowAnonymous]
         public IActionResult Index(int humanId, string? countryName)
         {
-            
                 List<Human> humen = null;
 
             if (humanId == 0)

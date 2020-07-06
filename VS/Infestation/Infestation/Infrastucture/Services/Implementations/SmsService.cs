@@ -1,5 +1,7 @@
 ﻿using Infestation.Infra.Services.Interfaces;
+using Infestation.Infrastucture.Configuration;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +14,27 @@ namespace Infestation.Infra.Services.Implementations
     public class SmsService : IMessageService
     {
         public IConfiguration _configuration { get; set; }
-        public SmsService(IConfiguration configuration)
+
+        InfestationConfiguration _infestationConfiguration { get; set; }
+
+        public SmsService(IConfiguration configuration, IOptions<InfestationConfiguration> options)
         {
             _configuration = configuration;
+
+            _infestationConfiguration = options.Value;
         }
 
         public void SendMessage(string recipient, string bodyMessage)
         {
-            TwilioClient.Init(_configuration.GetValue<string>("TwilioAccountSid"), _configuration.GetValue<string>("TwilioAuthToken"));
+
+            TwilioClient.Init(_infestationConfiguration.SmsService.TwilioAccountSid, _infestationConfiguration.SmsService.TwilioAuthToken);
 
             var message = MessageResource.Create(
-                body: "Hi there!",
-                from: new Twilio.Types.PhoneNumber("+18647320603"),
-                to: new Twilio.Types.PhoneNumber("+380933596232")
+                body: bodyMessage,
+                from: new Twilio.Types.PhoneNumber(_infestationConfiguration.SmsService.PhoneNumber),
+                to: new Twilio.Types.PhoneNumber(recipient)
             );
+
         }
     }
 }
