@@ -10,8 +10,8 @@ namespace Infestation.Infrastucture.Services
     {
         public String CreateCacheKey()
         {
-            return null;
-            //return $"image_{DateTime.UtcNow:yyyy_MM_dd}";
+           // return null;
+            return $"image_{DateTime.UtcNow:yyyy_MM_dd}";
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Infestation.Infrastucture.Services.Implementations
     {
         public byte[] GetFile()
         {
-            var client = new RestClient("http://localhost:5000");
+            var client = new RestClient("http://localhost:54196");
 
             var reqest = new RestRequest("File", Method.GET);
 
@@ -21,10 +21,20 @@ namespace Infestation.Infrastucture.Services.Implementations
 
             return result;
         }
+        public byte[] GetFile_two()
+        {
+            var client = new RestClient("http://localhost:54196");
+
+            var reqest = new RestRequest("File_two", Method.GET);
+
+            var result = client.Execute(reqest).RawBytes;
+
+            return result;
+        }
 
         public void UploadFile(IFormFile file)
         {
-            var client = new RestClient("http://localhost:5000");
+            var client = new RestClient("http://localhost:54196");
             var request = new RestRequest("File", Method.POST);
             if (file != null)
             {

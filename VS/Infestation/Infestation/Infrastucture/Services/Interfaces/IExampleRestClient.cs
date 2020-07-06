@@ -9,6 +9,7 @@ namespace Infestation.Infrastucture.Services.Interfaces
     public interface IExampleRestClient
     {
         byte[] GetFile();
+        byte[] GetFile_two();
         void UploadFile(IFormFile file);
     }
 }

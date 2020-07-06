@@ -31,7 +31,7 @@ namespace Infestation.Controllers
         [AllowAnonymous]
         public FileContentResult Image()
         {
-            var cacheKey = _Helper.CreateCacheKey();
+            var cacheKey =  _Helper.CreateCacheKey();
             var image = _cache.Get<byte[]>(cacheKey);
             if (image == null)
             {

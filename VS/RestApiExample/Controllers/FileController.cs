@@ -13,7 +13,14 @@ namespace RestApiExample.Controllers
         [HttpGet("File")]
         public FileContentResult GetFile()
         {
-            var fileBytes = System.IO.File.ReadAllBytes("wwwroot/TerrainImage55.jpg");
+            var fileBytes = System.IO.File.ReadAllBytes("wwwroot/35im.jpg");
+            return new FileContentResult(fileBytes, "image/jpeg");
+        }
+
+        [HttpGet("File_two")]
+        public FileContentResult GetFile_two()
+        {
+            var fileBytes = System.IO.File.ReadAllBytes("wwwroot/50im.jpg");
             return new FileContentResult(fileBytes, "image/jpeg");
         }
 

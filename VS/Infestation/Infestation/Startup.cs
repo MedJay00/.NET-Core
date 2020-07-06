@@ -42,7 +42,7 @@ namespace Infestation
             services.AddScoped<IHumanRepository, SqlHumanRepository>();
             services.AddScoped<IMessageService, MessageService>();
             services.AddSingleton <IHelper, Helper>();
-            services.AddSingleton<IExampleRestClient, ExampleRestClient>();
+            services.AddScoped<IExampleRestClient, ExampleRestClient>();
             services.AddScoped<IFileProcessingChannel, FileProcessingChannel>();
             //services.AddScoped<IMessageService<Sms>, SmsService>();
 

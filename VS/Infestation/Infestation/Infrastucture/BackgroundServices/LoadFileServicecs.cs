@@ -17,16 +17,16 @@ namespace Infestation.Infrastucture.BackgroundServices
     public class LoadFileServicecs : BackgroundService
     {
         private IMemoryCache _cache { get; }
-        private IExampleRestClient _restClient { get; }
-        private IServiceProvider _scopeFactory { get; }//IServiceProvider
+        //private IExampleRestClient _restClient { get; }
+        private IServiceProvider _scopeFactory { get; }//IServiceProvider  IServiceScopeFactory 
         public IHelper _helper { get; set; }
         InfestationConfiguration _infestationConfiguration { get; set; }
 
-        public LoadFileServicecs(IMemoryCache cache, IExampleRestClient restClient, IOptions<InfestationConfiguration> options, IServiceProvider scopeFactory, IHelper helper)
+        public LoadFileServicecs(IMemoryCache cache, /*IExampleRestClient restClient,*/ IOptions<InfestationConfiguration> options, IServiceProvider scopeFactory, IHelper helper)
         {
             _scopeFactory = scopeFactory;
             _cache = cache;
-            _restClient = _scopeFactory.GetService<IExampleRestClient>();
+            //_restClient = _scopeFactory.GetService<IExampleRestClient>();
             _helper = helper;
             _infestationConfiguration = options.Value;
             
@@ -34,19 +34,18 @@ namespace Infestation.Infrastucture.BackgroundServices
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            //using (var scope = _scopeFactory.CreateScope())
-            //{
-            //    var db = scope.ServiceProvider.GetRequiredService<IExampleRestClient>();
-            //}
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<IExampleRestClient>();
 
-
-            while (!stoppingToken.IsCancellationRequested)
+                while (!stoppingToken.IsCancellationRequested)
                 {
-                    var image = _restClient.GetFile();
+                    var image = context.GetFile();
+
 
                     if (image != null)
                     {
-                        var cacheKey = $"image_{DateTime.UtcNow:yyyy_MM_dd}";
+                        var cacheKey = _helper.CreateCacheKey();
 
                         var entryOptions = new MemoryCacheEntryOptions();
                         entryOptions.SlidingExpiration = TimeSpan.FromMinutes(_infestationConfiguration.CacheTime);
@@ -54,11 +53,26 @@ namespace Infestation.Infrastucture.BackgroundServices
                         _cache.Set<byte[]>(cacheKey, image, entryOptions);
                     }
 
+                    var image_two = context.GetFile();
+                    if (image != null)
+                    {
+                        var cacheKey_two = _helper.CreateCacheKey() + "2";
+
+                        var entryOptions = new MemoryCacheEntryOptions();
+                        entryOptions.SlidingExpiration = TimeSpan.FromMinutes(_infestationConfiguration.CacheTime);
+
+                        _cache.Set<byte[]>(cacheKey_two, image, entryOptions);
+                    }
+
                     await Task.Delay(TimeSpan.FromSeconds(30));
 
                 }
-            
+
             }
+        }
+
+
+           
         
     }
 }
